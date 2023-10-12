@@ -1,0 +1,45 @@
+PRISMA ES UIN ORM, OBJECT RELATIONAL MAPPING , PAQUETE DE CODIGO QUE 
+PODEMOS INSTALAR EN NUESTROS PROYECTOS DE JS Y TS CON NODEJS POR DEBAJO
+
+ESTO PARA QUE NOS FACILITE LA INTERACCION DE NUESTRA APLICACION WEB BACKEND CON NUESTRA BASE DE DATOS
+
+PROVEE TIPADO SEGURO CUANDO TRABAJA CON JS Y TS. SOPORTE BD SQL Y NOSQL
+
+LO PIOLA DE PRISMA ES QUE SI EN ALGUN MOMENTO SE QUIERE CAMBIAR DE BASE DE DATOS 
+A OTRA , SOLO SE DEBE CAMBIAR UN PEQUEÑO ARCHIVO DE CONFIGURACION Y QUIZAS ALGUNOS TIPOS
+DE DATOS EN NUESTRO ESQUEMA Y CON ESO ESTARIAMOS MIGRANDO NUESTRO GESTOR DE BD
+
+PRISMA SERA USADO EN CONJUNTO A UN FRAMEWORK DE BACKEND, COMO EXPRESS O NESTJS
+O TAMBIEN CON FRAMEWORKS DE SERVER SIDE RENDERING COMO NEXTJS O REMIX 
+ASI QUE NOS PUEDE AYUDAR A AHORRAR TIEMPO EN GENERAL
+
+LAS PARTES PRINCIPALES DE PRISMA SON 3
+
+@prisma/client
+    es un modulo de nodejs o de npm que se instala en nuestro proyecto y que ya esta generado con el codigo que necesita nuestro proyecto para poder trabajar con las tablas
+    permite enviar consultas a las bd de manera segura, todo esto se genera de forma automatica
+
+HAY UN COMANDO ESPECIAL LLAMADO npx prisma migrate 
+
+    el cual es una forma facil de poder alterar nuestra base de datos
+
+TAMBIEN ESTA npx prisma studio
+
+    que es  una interfaz grafica de usuario basada en la web y que permite poder editar y acceder a los datos, para que podamos editarlo desde un navegador , 
+    este es similar a proyectos como pgadmin o dbeaver o workbench, solo que en este caso funciona solo desde la web y es mucho mas sencilla en comparacion a otros programas 
+    
+---------
+se instala en desarrollo , pero esto instala un modulo mas que si ira en produccion , ya que ese modulo es el que se va a comunicar con la bd y el codigo 
+por lo que
+prisma es en desarrollo
+prisma client es en produccion
+
+
+al usar npx prisma nos permite inicializar nuestra configuracion de prisma
+el comando npx prisma init , nos da una configaracion inicial. por defecto prisma trabaja con POSTGRESQL
+
+npx prisma init --datasource-provider (bd)
+ej: npx prisma init --datasource-provider sqlserver
+
+usamos sqlite aca, asi no instalamos nada mas
+ 

@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+//este generator es la forma en la cual prisma dice "oka ahora convierto lo que escribas en este archivo en codigo de javascript o typescript
+
+//tambien podemos convertir codigo de prisma  a un modelo relacional de tabla
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+//es solo la especificacion de que base de datos nos vamos a conectar 
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+//para definir como lucira una tabla usamos model en prisma
+//cada tabla tiene que tener un pk, que lo definimos con @id
+model User{
+  id Int @id @default(autoincrement())//no le pasaremos id, se autoincrementara
+  email String @unique //digo que este campo es unico ya que no se deberian repetir correos 
+  name String 
+  lastname String? // con un signo de pregunta ? digo que un campo es opcional
+}
+
+// estas sintaxis se tienen que ir convirtiendo en tablas sql,  para poder hacer eso, tenemos un comando especial llamado npx prisma migrate, este comando
+// espera si estamos trabajando en desarrollo o en produccion,en desarrollo (npx prisma migrate dev) creara unas carpetas listadas todas las modificaciones , en produccion simplemente las va a subir para que no tengamos que estar modificando 
+
+//CADA VEZ QUE QUERRAMOS AÑADIR MAS TABLAS TENEMOS QUE AÑADIR  MAS SINTAXIS A ESTE SCHEMA DE PRISMA PARA PODER MODIFICARLO 
+
+//HAY UN PAQUETE @prisma/client QUE NOS PERMITE INTERACTUAR CON NUESTRAS TABLAS DESDE NUESTRO CODIGO JS O TS. ESTE SERA EL MODULO PARA PODER HACER 
+//UNA CONEXION DE NUESTRO CODIGO CON NUESTRA BASE DE DATOS
